@@ -1,106 +1,43 @@
 \startfirstchapter{Introduction}
 \label{chapter:introduction}
 
-The main goal of this document was to set up competently the Latex framework for a thesis document at UVic, with all the assorted details of front pages, numbering and so on. In order to present such a template to other users, the content has been filled from the guidelines of an experienced graduate advisor and supervisor on how to write a thesis in the first place.
+In 2020, of 10.35 million new cases of cancer in low and middle-income countries (LMIC) more than 70\% had no access to proper treatment for their disease\cite{CancerCountries/}. The development of low-cost radiotherapy treatment machines is imperative for improving cancer outcomes for patients in LMIC as x-ray treatment is effective as a single or combined modality for local–regional tumor control \cite{UN2012,WorldhealthOrganization2018WHODiseases}. To treat the unserviced population in LMICs the World Health Organisation estimates 5000 megavoltage (MV) radiotherapy linear accelerators (linacs) are needed\cite{Samiei2013ChallengesCountries}. With new linacs costing on the order of \$5M USD, the sort of investment for procurement and operation of this many machines will likely not be garnered by LMICs. This lack of low cost treatment options in LMICs is the premise of my PhD work, and specifically, I am investigating two discrete solutions to lowering the cost of these radiotherapy machines: The first is through the elimination of the costly kilovoltage on-board imagers (kV-OBI) through the introduction of novel MV imaging detector materials in combination with low atomic number linac targets while the second is the development of a super low cost kilovoltage radiotherapy system in collaboration with California based startup Sirius Medicine LLC.
 
-The Latex framework given in these files should work in the Windows, Mac and Unix environments. In Windows, the development environment is MikTex, available as a free download from the web page at \textit{miktex.org}. Miktex includes all the tools for \LaTeX, without a convenient editor. I have been using
-\textit{WinEdt} which is still the best as far as working in a well integrated manner with MikTex, even if one has to pay a small price. \textit{WinEdt} is available from \textit{winedt.com}. The corresponding package for the Mac is MacTex, available from \textit{www.tug.org$\backslash$mactex}.
-Please note that in the actual file with the \LaTeX code there are extra local comments referring to small differences between platforms. This is especially crucial for the insertion of figures of any type (see also Chapter 3).
+To motivate the necessity to improve MV imaging technology it is helpful to have some background in recent radiotherapy development: Currently, there is a huge potential for increasing the throughput of conventional radiotherapy machines. With new stereotactic ablative radiotherapy (SABR) treatments being used throughout the developed world\cite{ClaridgeMackonis2020StereotacticNSW,Palma2019StereotacticTrial,Palma2020StereotacticTrial,Billiet2020OutcomeOligometastases,Li2020RadiobiologyOncologists}, cancer sites that once would have required a month of once per day radiotherapy treatment can now be treated within a week using very high doses of radiation. This opens up the possibility of very high patient throughput for some treatment sites if these treatments can be performed in LMICs\cite{Asher2019PracticalWorld}. 
 
-The package \textit{BibTex} is used for the automatic bibliography and it is incorporated in the MikTex package. The style of bibliography exemplified is this document is the "plain" one,
-most often used in science theses. This is shown
-by the entry \textit{plain} in the \textit{bibliographystyle}
-command which can be found in the top file, namely
-\textit{mainthesisUVIC.tex}. Substitute the
-appropriate bibliography style for your needs by finding
-the correct parameter. In order to help you there is a PDF
-file entitled: "InformationOnBibliographyStyles.pdf" in the
-same folder as the top file \textit{mainthesisUVIC.tex}.
+However, to perform these SABR treatments some technical aspects must be addressed that prove challenging in LMICs. A key challenge in SABR treatment is to position the patient accurately during treatment so that the treatment beam precisely hits the patient's tumour\cite{Mesko2020EstimatingAccuracy,Wang2016ImprovedCancer}. The best way to ensure proper treatment positioning is to use a kilovoltage cone beam CT system (kV-CBCT) mounted to the treatment machine. Unfortunately, these kV-CBCT systems contribute significantly to the cost of the radiotherapy machine: While a pre-owned treatment machine without a kV-CBCT system can cost as low as \$175,000 USD, pre-owned machines with kV-CBCT capability are generally over three times this amount\cite{2021Linear/resources/linear-accelerator-guides/used-linac-price}.
 
-The title pages are correctly formatted according to the guidelines. However the superset is given here as a template for a Ph.D. dissertation and adjustments must be made for a Master's thesis accordingly.
+\subsection{MV CBCT Improvement}
 
-When presented with the task of having to write a large document reporting on the work done for the thesis portion of a graduate degree most people have anxiety attacks. It seems that the research work has been done, probably with great competence, yet one feels totally lost on how to approach the writing part - unless of course one is a writer to start with. While I am not at all the expert, I have experience both in writing documents and in supervising many graduate students. I have developed a simple enough structure which guides me and my students most of the times fairly well. We then customize it for different audiences and situations. The content of this pseudo mini thesis summarizes the structure I use.
+To avoid the added cost of a kV-CBCT system, megavoltage CBCT (MV-CBCT) can be used to acquire CT scans with the treatment beam itself\cite{Held2015FeasibilityCalculations,Malajovich2019CharacterizationDoses}. The downside of MV-CBCT is that the CT images acquired have lower contrast and require a higher patient radiation dose to maintain equivalent image quality to kV-CBCT\cite{Star-Lack2015AImaging}. Current solutions for improving the image quality of MV-CBCT include introducing multiple beam modes, some with characteristics for treatment and others with characteristics for imaging\cite{Parsons2012BeamTargets,Parsons2013PlanarLinear,Robar2012Volume-of-interestTarget}. Likewise, the x-ray detector design is an active area of development with new detector materials providing higher detection efficiency of x-rays, resulting in lower noise for MV beams\cite{Star-Lack2015AImaging,Myronakis2020Low-doseMLI,Myronakis2017AOptimization:}. 
+To improve MV imaging quality, novel low atomic number (Z) beam targets have been examined to generate photon beams with higher fluence in the kV range. The use of aluminum and carbon targets has been shown to improve image quality: Simulation studies show a 16-19\% increase in contrast between an aluminum target and the default tungsten target for a 6 MV photon beam \cite{Kim2018InvestigationSimulation, Flampouri2002OptimizationExperiment}. Experimentally, Baek et al. showed that a gantry mounted aluminum target improved the limiting spatial frequency (f50) from 0.451 lp/mm to 0.745 lp/mm for a tungsten target  6 MV beam\cite{Baek2019AssessmentFilter}. Additionally, Parsons et al. showed an increase in the contrast to noise ratio (CNR) in projection images of cortical bone by factors ranging from 3.7 to 7.4 between carbon and aluminum targets with 2.35 and 1.9 MV photon beams and the default 6 MV tungsten imaging setup \cite{Parsons2012BeamTargets}.
 
-This document, however, is \textit{not at all} a Latex manual. There are a few examples sprinkled here and there of various commands. However no explanations or full examples are given for how to use Latex itself. That is most certainly left to the user!
+Furthermore, advances in MV EPID design have shown promise in improving MV image quality. Many MV EPIDs use a gadolinium oxysulfide (GOS) scintillator, which is opaque to its own scintillation photons. This limits the thickness of GOS detectors which in turn limits the quantum efficiency of the detector. Star-lack \textit{et al.} examined cadmium tungstate (CWO) and bismuth germinate (BGO) detectors, which are higher Z materials and can be made thicker for MV photon detection. CWO was noted to have a 20-fold efficiency improvement over GOS with significantly higher stability and light yield than BGO \cite{Star-Lack2015AImaging}. Likewise, image quality improvement was seen using multi-layer GOS imagers with 2-4 times greater CNR than an equivalent single layer GOS detector \cite{Myronakis2020Low-doseMLI}.
 
-Starting at the very beginning, my first step is to set up the formatting framework before the content itself, just like the frame of a building is the sustaining structure. By having the content only in bullet points which can be moved and changed at will I can have a whole document which will always compile and be ready for presentation. I ask my student to prepare mock chapters which contains only these bulleted lists to be used for discussion. The bulleted list I had for this chapter is as follows:
-\begin{enumerate}
-        \item State the dual purpose of this document (just mention briefly);
-        \item State what this document is not (just mention);
-        \item Describe what I think should go in the Introduction in general;
-        \item Describe what I think should not go in the "Introduction" chapter in general;
-        \item Describe the structure of the document.
-\end{enumerate}
+An additional novel and cheap material that has very recently been used for medical imaging applications and is well suited for MV imaging is Perovskite crystals. These crystals which see application in solar cell production have recently demonstrated excellent spatial resolution for kV imaging\cite{Gill2018FlexibleApplications,Butey2021CurrentTechnology,Zhu2020Low-doseScintillators}. Their lead content, high spatial resolution, and cheap production costs make them an attractive candidate as an MV detector material. However, the use of Perovskite crystals in MV imaging is currently an unexplored topic.
 
-When the writing for a chapter is particularly long, it might be better to have some, if not all, sections in separate files. It makes it a lot easier to find possible errors in Latex as well, since the command to input a file for a separate section can always be commented out. When looking at the \textit{.tex} file itself for this introduction chapter you will notice that there are 2 sections, namely "How to Start an Introduction" and "Is a Review of All previous Work Necessary Here?" which are included as separate files, immediately following this paragraph.
-\input chapters/1/sec_intro
-\input chapters/1/sec_review
-%\pagebreak
-\section{My Claims}
-Something must be new in this work, no matter how small, since you are getting a graduate degree for it! Tell me about it clearly and succintly right now, just as you did in the abstract. Make an impact here. How about something like the following box:
+Currently, these two approaches to improving MV imaging, the amelioration of detector efficiencies and introduction of low-Z targets, have remained largely separate. Likewise, direct comparison of the benefit of different imaging strategies in the literature remains challenging as different works have different combinations of voxel size, cone-beam size, phantom dose, focal-spot size and other imaging variables.
 
-I make \textit{four} claims which
-my dissertation validates:
-\\
+\subsubsection{Improved CBCT Simulation}
 
-\framebox{%
-\parbox{5in}{
-	My new algorithm to solve the problem of doing nothing include these important new features whose practical applicability can be proved both formally and empirically:
-	\begin{enumerate}
-	\item first feature;
-	\item second feature;
-	\item everything is much easier to understand, and therefore, easier to implement correctly.
-	\end{enumerate}
-}}
-\\
+To adequately quantify the quality of these novel MV-CBCT imaging setup Monte Carlo simulation codes are generally used. However, while MC simulations are accurate they are exceptionally computationally demanding. A large number of particles need to be simulated to form a CBCT image, especially when simulating the special detector materials in medical imaging, called scintillators, which convert x-ray photons to many optical photons which can be measured using typical optical readout methods. The long simulation time can be primarily attributed to two factors. First, MV detectors generally have low detective quantum efficiency (DQE), meaning that many particles that are transported in the simulation do not interact with the detector and do not contribute to image formation. A typical EPID DQE is as low as 1\%-1.5\% \cite{Myronakis2017AOptimization:,Hu2017APerformance}. Second, the scintillating detector in which the optical photons are produced generally has a high scintillation yield; generating thousands of optical photons to be transported per interaction event. These two factors result in simulation times often as long as 3,000 core-hours for a 10$^7$ primary x-ray simulation of one EPID projection \cite{Blake2013CharacterizationGeant4}. Further, to produce a clinically equivalent image of 1 MU with a 10$\times$10cm$^2$ field size a simulation with more than 10$^{11}$ photons is required\cite{Shi2019ADetectors.,Star-Lack2014RapidDQEf,Rottmann2016AEfficiency}. This problem is compounded in CBCT simulation, where it is necessary to simulate many projections of the object for CBCT image reconstruction.
 
-\noindent Claim 1 and claim 2 are \textit{quantitative} - they will be proven by experiment.
+Large headway has been made to reduce this computational overhead. Star-lack \textit{et al.}  have shown that one can simulate the detector response with only a fraction of the scintillation yield, significantly reducing the computation time\cite{Star-Lack2014RapidDQEf}. Likewise, by simulating the optical spread function at discrete energies beforehand and convolving these optical spread functions with the energy deposition of an absorbed photon one can avoid simulating the scintillation processes completely\cite{Kausch1999MonteRadiotherapy, Kirkby2005ComprehensiveEPID}. Additionally, Shi \textit{et al.} introduced the fastEPID framework which pre-calculates energy deposition efficiency ($\eta$) and optical spread function (OSF) to remove particle transport in the detector entirely without loss of image quality \cite{Shi2019ADetectors.}. Where $\eta$ is defined as the ratio of the total energy deposition in the scintillator and the total x-ray photon energy incident on the detector. However, these simulations are still considered computationally intensive with one image at 1 MU taking 1.540 $\times$ 10$^4$ core-hours on an Intel Skylake CPU core (Intel Corp., Santa Clara, Ca). Other MC approaches that are promising for image simulation are the GPU methods used by Badal and Badano as well as Bert \textit{et al.}\cite{Bert2013Geant4-basedApplications,Badal2009AcceleratingUnit}. The approaches have seen MC simulation speedup factors of 27 and 80-90, respectively. However, at this time, open source GPU MC codes lack the stability and versatility of more established codes such as Geant4 or EGSnrc.
 
-\noindent Claim 3 is \textit{qualitative} - they will be demonstrated by argument.
+Additionally, a number of works simulate fan and cone beam CT analytically to reduce computation time. ImaSim analytically simulates fan and cone beam CT through raytracing using vectorized phantoms \cite{Landry2013ImaSimRadiology}. VOXSI simulates kV fan beam CT using analytical raytracing with voxelized phantoms \cite{vanderHeyden2018VOXSI:Imaging} and shows agreement with experimental images in terms of image contrast. DukeSim simulates kV fan beam CT with voxelized phantoms through a combination of analytical raytracing and GPU MC and demonstrates agreement between experimental and simulated images in terms of image contrast, noise magnitude, noise texture, and spatial resolution \cite{Abadi2019DukeSim:Tomography}. A drawback to the DukeSim approach is that the GPU MC reduces the simulation speed, requiring a 2-3 minute simulation per source rotation while running on 4 Nvidia Titan Xp GPUs with 64 GB of memory. Overall, none of these platforms are open-source and only DukeSim shows agreement with experimental noise and image contrast. Additionally, none of these platforms show experimental agreement for kV or MV CBCT.
 
-\subsection{The Importance of My Claims}
+In my PhD work I used a modified fastEPID pre-calculation of MC data for the detector response while also pre-calculating the energy spectrum of the beam source as well as energy dependent scatter kernels for a cylindrical water phantom. I combined this data with an analytical GPU raytracer that provides the primary particle attenuation. This simulation strategy is used to create Fastcat, an open source simulation tool for CBCT image simulation to enable studies of novel beam, detector, and phantom combinations. Fastcat shows good agreement with MC simulations of full CBCT data acquisition and it results in extremely short run times on the order of 1 GPU-minutes for a full CBCT simulation.
 
-Some very important positive consequences
-arise from the validation of the above claims.
-It is these consequences that comprise a significant
-positive contribution to research in the field
-of whatever the field is.
-\\
+In my PhD work I also simulate image quality for combinations of novel MV beam target materials such as carbon and aluminum with different detector materials such as CWO and a novel Perovskite crystal detector. I compare these novel imaging methodologies with standard kV imaging setup devices such as columnar cesium iodide (CsI) detectors. I investigated whether the combination of novel MV beams and detectors can result in MV CBCT image quality approaching kV CBCT image quality.
 
-\noindent Claim 1 implies that:
-\begin{enumerate}
-\item{Something profound which applies to:
-	\begin{itemize}
-	\item {something excellent;}
-	\item {something important.}
-	\end{itemize}}
-\item{Something else just as profound.}
-\end{enumerate}
+\subsection{kV Treatment Machine Design}
 
-\noindent Claim 2 implies that:
-\begin{itemize}
-\item{Repeat as above if necessary and useful.}
-\end{itemize}
+Conversely, to decrease the cost of radiotherapy by an order of magnitude one can bypass linacs and use kV treatments machines. While kV treatment machines cannot be expected to have comparable treatment efficacy and versatility to MV linear accelerators, their low cost makes them the only approach realistic for some LMIC. Modern radiotherapy treatment machine design centres around the use of a linear accelerator to create MV photon beams. These beams are ideally suited to this task in that they can deposit cell damaging radiation in cancerous lesions deep in the human body while sparing the sensitive skin from radiation burns. 
 
-\noindent The consequence of claim 3 is that:
-\begin{itemize}
-\item{There must be something good coming out of all this work!}
-\end{itemize}
+Historically, throughout the early 20th century, kV photon beams were used in this application since they are simple to produce and have the same cell damaging properties as MV x-rays, however, these kV photon beams generally produced radiation burns on the patients’ skin. Currently, with advances in x-ray tube development, treatment planning optimization, and robotics there are opportunities to re-introduce kV photon beams as a treatment option for deep lesions in LMICs where treatment options are currently unavailable\cite{Breitkreutz2020ExternalX-rays}. Additionally, kV photon beams show major benefits when used in combination with gold nanoparticles (GNPs) as a radiosensitizer \cite{Sung2018EnergyTherapy}. An application in which there is currently no commercial solution in place to treat humans with a kV treatment machine designed to treat deep lesions.
 
-\section{Agenda}
+A key design feature of a kV treatment machine is to have multiple beams converging on the tumour. This allows the skin dose to be spread out over a large area allowing there to be sufficient dose delivered to the tumour to sufficiently treat the disease while no individual area of skin is given enough of a radiation dose to cause painful side effects for the patient. An additional attractive feature of kV x-rays incident on a high atomic number (Z) material such as gold or iodine will generally interact using the photo-electric effect. The photo-electric effect in turn produces Meitner electrons, sometimes referred to as Auger-electrons, these electrons deposit dose locally and are effective tumor radiosensitizers, increasing the efficacy of kV radiotherapy treatments. Previous designs have used a scanning electron beam over many targets to create many converging beams \cite{Breitkreutz2017MontePatients:}.
 
-This section provides a map of the dissertation
-to show the reader where and how it validates
-the claims previously made. Here is where I am also presenting my own style of organization which may be totally different from what your supervisor thinks. However, trust me, this is a good solid beginning for a structure. Your supervisor may ask you to change it, but will still appreciate what you have! For each of the chapters below I also give a short summary of what the main focus should be and then I expand on it  a bit within the chapter itself.
+In 1999, a kV treatment modality constructed out of a repurposed CT scanner, termed CTRx, used a modified pencil-beam collimator to treat brain lesions in clinical trials  \cite{Rose1999FirstCTRx, Mesa1999DoseAgents}. CTRx was capable of IGRT due to its ability to function as both a diagnostic and therapeutic system. Mesa \textit{et al.} additionally used Monte Carlo dose calculations to investigate the dosimetric properties of the CTRx system used in conjunction with Iodine as a radiosensitizer, a topic that will be discussed further below. The energy spectrum used in the simulations was modelled after the 140 kVp setting of a GE CT scanner. Skull dose reduction was explored both by means of increasing the concentration of iodine (up to 20 mg/ml) in the tumor as well as the use of three non-coplanar (20$^{\circ}$, 0$^{\circ}$ and -20$^{\circ}$) treatment arcs by tilting the gantry. The CTRx treatments were compared to simulated treatments with a conventional 10 MV photon beam modelled after a linac. The CTRx system was capable of achieving suitable tumor dose distributions given sufficient iodine concentrations and non-coplanar beams.
 
-\begin{description}
-\item[\textbf{Chapter 1}] contains a statement of
-the claims which will be proved by this dissertation followed by an overview of the structure of the document itself.
-\item[\textbf{Chapter 2}] describes in details the open problem which is to be tackled together with its context, its impact and the overall motivation for the research overall.
-\item[\textbf{Chapter 3}] gives the new research, its methodology, the algorithms involved, the new solution, the new work done. Formal proofs and arguments are made here. This is the first of the two contributions expected in a thesis for a graduate degree.
-\item[\textbf{Chapter 4}] is where the experiments and the methodology for them is fully described. The first part includes all details of how the empirical side of the research has been conducted. Note that not every thesis has this empirical portion.
-\item[\textbf{Chapter 5}] includes the evaluation of the data presented above and the comparisons with the work of others, to show how much better the new approach is. This is the second of the two contributions expected in a thesis for a graduate degree. Note that this part could be consolidated into the chapter above.
-\item[\textbf{Chapter 6}] contains a restatement of the claims and results of the dissertation. It also enumerates avenues of future work for further development of the concept and its applications.
-\end{description}
-
-The list above is not complete. Chapter 3 actually includes a lot more, as I could not resist placing in it a few \LaTeX examples to help you along. This document is not a primer for \LaTeX, but there is no harm done in giving a little help.
+In my work I explore a novel design for a kV treatment system using a conventional x-ray tube mounted on an articulating robotic arm. This system leverages the decreased cost of robotic arms which for prices around \$30K USD can handle the weight of an x-ray tube and have sub millimeter positioning accuracy. In combination with a commercial 320 kV industrial x-ray tube these arms could provide a non-coplanar kV-treatment machine for less than \$150K USD, with low operating costs, few specialised components, and low shielding requirements. These treatment machines, although likely not as effective as MV treatment machines, would avoid the estimated \$5M USD price of a new linac and \$2M USD additional cost of constructing the 2 metre thick cement bunker.

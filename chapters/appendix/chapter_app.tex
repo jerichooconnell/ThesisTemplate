@@ -1,9 +1,21 @@
 \startappendix{Additional Information}
 \label{chapter:appendix}
 
-This is a good place to put tables, lots of results, perhaps all the data compiled in the experiments. By avoiding putting all the results inside the chapters themselves, the whole thing may become much more readable and the various tables can be linked to appropriately.
+\subsubsection{Fastcat Experimental Validation Simulations}
+% \subsubsection{kV CBCT}
 
-The main purpose of an Appendix however should be to take care of the future readers and researchers. This implies listing all the housekeeping facts needed to continue the research. For example: where is the raw data stored? where is the software used? which version of which operating system or library or experimental equipment was used and where can it be accessed again?
+Here is a brief description of the kV and MV Fastcat models used for experimental validation. The kV Fastcat simulation used as input an analytical x-ray source generated in xpecgen \cite{Hernandez2016Xpecgen:Anodes} with an anode angle of 14$^{\circ}$ and a tube voltage of 100 kVp. The source was subject to additional analytical filtration of 2.7 mm of aluminum and a 0.89 mm titanium beam hardening filter. The detector modelled in the simulation was a columnar CsI detector with optical properties based on the work of Freed \textit{et al.} \cite{Freed2009ExperimentalScreens}. The columnar CsI was 0.6 mm thick with a fill factor of 70\% and a pixel pitch of 384 $\mu$m.
 
-Ask yourself: if you were given this thesis to read with the goal that you will be expanding the research presented here, what would you like to have as housekeeping information and what do you need? Be kind to the future graduate students and to your supervisor who will be the one stuck in the middle trying to find where all the stuff was left!
+
+% \subsubsection{MV CBCT}
+
+The MV Fastcat simulation source was a 6 MV Truebeam phase-space file provided by Varian. Although considered preferable by the authors, an analytical simulation of the MV beam was not used as a suitable model could not be found. This phasespace was binned by photon energy to provide a photon spectra for input into Fastcat. The detector used in the simulation was modelled as a Varian as1200 detector using the optical properties from Shi et al \cite{Shi2018APerformance}. This detector is the same as described in previous work \cite{OConnell2021FastCAT:Simulation}. The GOS scintillator was 0.29 mm thick with a pixel pitch of 392 $\mu$m.
+
+\subsubsection{Dose Comparison}
+
+A validation of dose linearity was performed. Four CBCTs at increasing doses were acquired experimentally for both the kV and the MV setups. Doses were measured using machine CTDI for the kV CBCTs with CTDIs of 5.27, 7.03, 10.55, and 21.1 with a 16 cm diameter CTDI phantom. Four MV CBCTs were acquired with machine MU values which were 75, 100, 150, and 300 MU. The dose in Fastcat was adjusted such that the average CNR over all inserts in the Catphan phantom agreed with that of the experimental CBCT with the lowest dose averaged. This Fastcat dose was then multiplied by factors of 1.5, 2, and 4. Agreement between average CNR was then compared between these Fastcat simulations and the experimental CBCTs.
+
+An MC validation of the Mean phantom dose for a single projection was performed. Mean phantom dose for a single projection was calculated in Topas \cite{Perl2012Topas:Applications} using an MC model of the Catphan phantom with 2$\times$10$^8$ initial photons. This dose was compared to the dose calculated in Fastcat for the same number of photons. These simulations used the Geant4 Penelope physics list and a particle range cutoff of 5$\mu$m. Simulations were run on a linux desktop computer with 8 Intel Skylake CPUs. No variance reduction techniques were used. Two simulations were run in total, one with the 6 MV Varian phasespace file and one with an analytical 100 kVp x-ray spectrum filtered by 2.7 mm of aluminum, 0.89 mm titanium, and an aluminum bowtie filter. Both simulations measured the mean phantom dose to virtual Catphan 504 phantom.
+
+The mean dose values from the MC simulations were used to perform a back of the envelope calculation to check that values were consistent between Fastcat kV and MV mean phantom doses and linac values reported as CTDI and in MUs, respectively. A conversion factor between the number of Fastcat photons to Fastcat mean phantom dose was estimated using the ratio of the dose scored in the MC simulations to the number of MC-simulated photons. The conversion factors were multiplied by the number of photons in the kV and MV experimental Fastcat simulations to get the mean phantom dose per projection and finally by the number of experimental projections to get the mean phantom dose for the total simulation.
 
